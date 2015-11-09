@@ -40,6 +40,10 @@ class AnnouncementsController < ApplicationController
     redirect_to :back, notice: I18n.t!("flash.announcement.sent", volunteer_count: announcement.reach)
   end
 
+  def destroy
+    @announcement = Announcement.find params[:id]
+    @announcement.destroy
+  end
 private
 
   def announcement_params
